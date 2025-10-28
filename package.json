@@ -1,0 +1,33 @@
+{
+	"name": "vuepress-plugin-noscript-code",
+	"version": "1.0.0",
+	"description": "",
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsc && tsc -p tsconfig.json",
+		"publish:patch": "npm version patch && npm publish",
+		"publish:minor": "npm version minor && npm publish",
+		"publish:major": "npm version major  && npm publish",
+		"prepublish": "npm run build",
+		"postpublish": "cnpm sync vuepress-plugin-noscript-code"
+	},
+	"keywords": [],
+	"type": "commonjs",
+	"types": "./lib/index.d.ts",
+	"main": "./lib/index.js",
+	"files": [
+		"lib",
+		"README.md",
+		"LICENSE"
+	],
+	"author": "DCloud_LXH",
+	"license": "ISC",
+	"packageManager": "pnpm@10.12.1",
+	"devDependencies": {
+		"@types/markdown-it": "< 14",
+		"@types/node": "^22.15.19",
+		"@vuepress/types": "^1.9.10"
+	}
+}
