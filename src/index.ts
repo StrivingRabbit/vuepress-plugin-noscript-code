@@ -28,14 +28,12 @@ export const noscriptCodePlugin = (md: MarkdownIt, options: Options) => {
 
     // 2. 创建 <noscript> 块，内容是转义后的源码
     //    使用 <pre> 保持格式，<code> 语义化
-    const noscriptContent = `<pre><code class="language-${escapeHtml(lang)}">${escapeHtml(code)}</code></pre>`;
+    const noscriptContent = `<pre v-pre><code class="language-${escapeHtml(lang)}">${escapeHtml(code)}</code></pre>`;
     const noscriptTag = `<noscript>
   <p>${options.AIPrompt || '示例源码如下（仅在无脚本环境下可见）'}</p>
   ${noscriptContent}
 </noscript>`;
 
-    // 3. 将两者拼接起来返回
-    //    默认代码块在前，<noscript> 在后
     return defaultRenderedCode + noscriptTag;
   };
 };
